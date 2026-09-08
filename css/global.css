@@ -68,7 +68,6 @@ img, video, iframe, canvas, svg { max-width: 100%; }
   transition: border-color .18s, box-shadow .18s;
 }
 
-
 /* --------------------------------------------------------------------------
    6. FAQ / ACCORDION
    -------------------------------------------------------------------------- */
@@ -106,6 +105,9 @@ details[open] summary span { transform: rotate(45deg); display: inline-block; }
   opacity: 0; transition: opacity .5s cubic-bezier(0.16,1,0.3,1);
 }
 .tour-btn:hover::before { opacity: 1; }
+
+.demo-submit-btn        { background: #FA7938; }
+.demo-submit-btn:hover  { background: #CC4B0A; }
 
 
 /* --------------------------------------------------------------------------
