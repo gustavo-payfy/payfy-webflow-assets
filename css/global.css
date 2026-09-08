@@ -256,7 +256,7 @@ details[open] summary span { transform: rotate(45deg); display: inline-block; }
   .stat-num { font-size: 46px !important; }   /* ver conflito com a Home no README */
 
   /* Grids que viram uma coluna */
-  .hero-grid { grid-template-columns: 1fr !important; }
+  .hero-grid { display: block !important; }
   .steps4    { grid-template-columns: 1fr !important; }
   .four-grid { grid-template-columns: 1fr !important; }
   .six-grid  { grid-template-columns: 1fr !important; }
