@@ -1,0 +1,326 @@
+/* --------------------------------------------------------------------------
+   1. BASE
+   -------------------------------------------------------------------------- */
+* { box-sizing: border-box; }
+
+html, body { max-width: 100%; overflow-x: hidden; }
+body { margin: 0; background: #F9F9F9; }
+
+img, video, iframe, canvas, svg { max-width: 100%; }
+
+
+/* --------------------------------------------------------------------------
+   2. TIPOGRAFIA
+   -------------------------------------------------------------------------- */
+.h2big { font-size: 44px !important; line-height: 1.08 !important; }
+.pay-amt { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+
+/* --------------------------------------------------------------------------
+   3. HEADER — ÚNICA EXCEÇÃO À RÉGUA (991px)
+
+   991px é o breakpoint nativo de tablet do Webflow. Isso já esteve em 900px e
+   foi corrigido: a faixa 901–991 ficava com o menu desktop espremido. Baixar
+   para 900 recria esse bug.
+   -------------------------------------------------------------------------- */
+.nav_component     { position: fixed !important; z-index: 9999 !important; }
+.hamburger_11_wrap { --thickness: 2px; --width: 22px; --gap: 5px; }
+
+@media (max-width: 991px) {
+  .nav-desktop    { display: none !important; }
+  .nav-mobile-btn { display: flex !important; align-items: center; justify-content: center; }
+
+  /* no mobile quem manda é o #pf-mobile-menu */
+  #pf-menu-produto,
+  #pf-menu-ferramentas,
+  #pf-menu-conteudos { display: none !important; }
+}
+
+
+/* --------------------------------------------------------------------------
+   4. HOVER — troca de cor
+   -------------------------------------------------------------------------- */
+.pf-nav-link:hover,
+.pf-nav-login:hover      { color: #FA7838 !important; }
+.pf-nav-login:hover      { background: #F2F4F6 !important; }
+.pf-menu-link:hover      { background: #FAF8F7; }
+.pf-menu-link:hover .pf-menu-title { color: #FA7838 !important; }
+.scp0:hover              { background: #FAF8F7 !important; }
+.scp1:hover, .scp2:hover { color: #1F1B19 !important; }
+
+.askai-btn:hover { border-color: #CC4B0A !important; background: #FFFDFB !important; }
+.askai-btn:hover .askai-ico { background: #FFF1E8 !important; color: #CC4B0A !important; }
+.askai-btn:focus-visible { outline: 2px solid #CC4B0A; outline-offset: 2px; }
+
+
+/* --------------------------------------------------------------------------
+   5. FORMULÁRIO
+   -------------------------------------------------------------------------- */
+.pf-inp {
+  width: 100%;
+  font: 400 16px/1.3 'Inter', sans-serif;
+  color: #1F1B19;
+  background: #fff;
+  border: 1px solid #E6E2E0;
+  border-radius: 10px;
+  padding: 15px 16px;
+  outline: none;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+
+/* --------------------------------------------------------------------------
+   6. FAQ / ACCORDION
+   -------------------------------------------------------------------------- */
+details[open] summary span { transform: rotate(45deg); display: inline-block; }
+
+
+/* --------------------------------------------------------------------------
+   7. BOTÕES COM GRADIENTE
+   O .pf-cta é o CTA do header, presente em todas as páginas.
+   -------------------------------------------------------------------------- */
+.pf-cta { position: relative; overflow: hidden; isolation: isolate; }
+.pf-cta::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(120deg, #CC4B0A 0%, #FA7838 55%, #FF9152 100%);
+  opacity: 0; transition: opacity .5s cubic-bezier(0.16,1,0.3,1);
+}
+.pf-cta:hover::before { opacity: 1; }
+.pf-cta:hover { background: #CC4B0A !important; }   /* fallback sob o gradiente */
+
+.roi-btn { position: relative; overflow: hidden; isolation: isolate; transition: color .45s ease, border-color .5s ease; }
+.roi-btn::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(120deg, #FA7938 0%, #FF9152 50%, #FFB57D 100%);
+  opacity: 0; transition: opacity .5s cubic-bezier(0.16,1,0.3,1);
+}
+.roi-btn:hover { color: #fff !important; border-color: transparent !important; }
+.roi-btn:hover::before { opacity: 1; }
+.roi-btn .roi-arrow { transition: transform .45s cubic-bezier(0.16,1,0.3,1); }
+.roi-btn:hover .roi-arrow { transform: translateX(4px); }
+
+.tour-btn { position: relative; overflow: hidden; isolation: isolate; background: #FA7838; transition: box-shadow .45s ease; }
+.tour-btn::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(120deg, #CC4B0A 0%, #FA7838 55%, #FF9152 100%);
+  opacity: 0; transition: opacity .5s cubic-bezier(0.16,1,0.3,1);
+}
+.tour-btn:hover::before { opacity: 1; }
+
+
+/* --------------------------------------------------------------------------
+   8. CARDS
+   -------------------------------------------------------------------------- */
+
+/* Cards de passo — reveal on scroll (a classe .pf-pre é aplicada por JS) */
+.step-card {
+  opacity: 1; transform: none;
+  transition: transform .5s cubic-bezier(0.16,1,0.3,1),
+              box-shadow .5s cubic-bezier(0.16,1,0.3,1),
+              opacity .7s ease;
+}
+.step-card.pf-pre { opacity: 0; transform: translateY(28px); }
+.steps4 .step-card:nth-child(1) { transition-delay: .05s; }
+.steps4 .step-card:nth-child(2) { transition-delay: .16s; }
+.steps4 .step-card:nth-child(3) { transition-delay: .27s; }
+.steps4 .step-card:nth-child(4) { transition-delay: .38s; }
+.step-card:hover { transition-delay: 0s; transform: translateY(-10px); }
+
+.detail-card { transition: transform .35s cubic-bezier(0.16,1,0.3,1); will-change: transform; }
+.detail-card:hover { transform: rotate(-3deg) scale(1.05) translateY(-6px) !important; }
+
+
+/* --------------------------------------------------------------------------
+   9. ELEMENTOS ANIMADOS
+   Estes existem só para receber os keyframes do payfy-anim.css.
+   -------------------------------------------------------------------------- */
+
+/* Switch de auto-aprovação */
+.pf-sw {
+  width: 38px; height: 21px; border-radius: 999px; position: relative; flex: none;
+  background: #D8D2CC; animation: pf-sw-track 8s ease-in-out infinite;
+}
+.pf-sw-knob {
+  position: absolute; top: 2px; left: 2px; width: 17px; height: 17px;
+  border-radius: 99px; background: #fff;
+  animation: pf-sw-knob 8s cubic-bezier(0.5,0,0.3,1) infinite;
+}
+
+/* Gráficos */
+.pf-donut {
+  -webkit-mask: conic-gradient(#000 var(--pfd), transparent 0);
+          mask: conic-gradient(#000 var(--pfd), transparent 0);
+  animation: pf-draw-donut 4.8s cubic-bezier(0.45,0,0.15,1) infinite;
+}
+.pf-fill { transform-origin: left; animation: pf-fill-bar 4.8s cubic-bezier(0.45,0,0.15,1) infinite; }
+
+/* Borda animada */
+.beam { position: relative; }
+.beam::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+  background: conic-gradient(from var(--beam-angle), transparent 300deg, rgba(250,121,56,0.45) 320deg, #FA7938 335deg, rgba(250,121,56,0.60) 345deg, rgba(250,121,56,0.30) 352deg, rgba(250,121,56,0.12) 357deg, transparent 360deg);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+          mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);         mask-composite: exclude;
+  animation: beam-spin 8s linear infinite; pointer-events: none; z-index: 3;
+}
+
+/* Marquee de depoimentos */
+.tm-wrap {
+  overflow: hidden; padding: 26px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+}
+.tm-track { display: flex; gap: 24px; width: max-content; animation: tm-marquee 70s linear infinite; }
+.tm-wrap:hover .tm-track { animation-play-state: paused; }
+.tm-card { transition: filter .35s ease, opacity .35s ease, transform .35s cubic-bezier(0.16,1,0.3,1); }
+.tm-wrap:hover .tm-card { filter: grayscale(1); opacity: .5; }
+.tm-wrap .tm-card:hover { filter: none; opacity: 1; transform: scale(1.09); }
+
+
+/* --------------------------------------------------------------------------
+   10. TABLET (≤900px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+
+  /* Sections */
+  .sec { padding: 80px 0 !important; }   /* ver conflito com a Home no README */
+
+  /* Hero */
+  .hero-h1 { font-size: 52px !important; }
+
+  /* Sequência de etapas */
+  .seq-row   { flex-wrap: wrap !important; justify-content: center !important; }
+  .seq-arrow { display: none !important; }
+
+  /* Como funciona — 4 passos ficavam espremidos */
+  .steps4 { grid-template-columns: 1fr 1fr !important; }
+
+  /* Composição da conta */
+  .wc-grid  { grid-template-columns: 1fr !important; }
+  .wc-stage { width: 100% !important; height: auto !important; margin-right: 0 !important; min-height: 560px !important; }
+  .wc-text  { width: 100% !important; height: auto !important; }
+
+  /* Bento */
+  .bento-grid        { grid-template-columns: 1fr !important; }
+  .bento-head        { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .bento-head-visual { max-width: 400px !important; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: 1fr 1fr !important; }
+
+  /* IA + CTA */
+  .ai-grid, .cta-grid { grid-template-columns: 1fr !important; }
+  .cta-photo { min-height: 340px !important; }
+
+  /* Features */
+  .feat-row { grid-template-columns: 1fr !important; gap: 32px !important; }
+  .feat-row .feat-text, .feat-row .feat-img { order: 0 !important; }
+  [data-reactive-grid] > div:first-child { margin-bottom: -90px !important; }
+
+  /* Ticker */
+  .ticker { gap: 24px !important; overflow-x: auto !important; }
+
+  /* Sistemas que não conversam */
+  .chaos-canvas { height: 760px !important; }
+  .chaos-hide   { display: none !important; }
+
+  /* Movimento desligado no toque — tilt e parallax causavam o "sambando" */
+  [data-reactive-grid] { transform: none; transform-origin: top left; }
+  .card-tilt-zone      { transform: none !important; }
+  .bb-photo            { transform: none !important; }
+  .wc-stage            { transform: none; transform-origin: top left; }
+
+  /* Footer — era repeat(3,1fr) @991. Com dois breakpoints, tablet vira 2 col. */
+  .ft-grid  { grid-template-columns: repeat(2, 1fr) !important; gap: 32px !important; }
+  .ft-brand { grid-column: 1 / -1 !important; }
+  footer > div:last-child { padding-top: 64px !important; }
+
+  /* Ask AI */
+  .askai-grid { grid-template-columns: 1fr !important; gap: 48px !important; padding: 80px 24px !important; }
+  .askai-text { width: auto !important; height: auto !important; }
+  .askai-h2   { font-size: 38px !important; }
+}
+
+
+/* --------------------------------------------------------------------------
+   11. MOBILE (≤640px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 640px) {
+
+  /* tabelas largas rolam sozinhas em vez de esticar a página */
+  table { display: block; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* Tipografia */
+  .hero-h1  { font-size: 40px !important; }
+  .h2big    { font-size: 30px !important; }
+  .stat-num { font-size: 46px !important; }   /* ver conflito com a Home no README */
+
+  /* Grids que viram uma coluna */
+  .hero-grid { grid-template-columns: 1fr !important; }
+  .steps4    { grid-template-columns: 1fr !important; }
+  .four-grid { grid-template-columns: 1fr !important; }
+  .six-grid  { grid-template-columns: 1fr !important; }
+  .pf-row    { grid-template-columns: 1fr !important; }
+
+  /* Composição da conta */
+  .wc-stage { min-height: 320px !important; margin-bottom: 0 !important; }
+
+  /* Features */
+  .feat-text { padding-top: 3rem !important; }
+
+  /* Calendário compacto */
+  .week-mobile { display: grid !important; gap: 5px !important; width: 3.3rem !important; }
+
+  /* Footer */
+  .ft-grid   { grid-template-columns: 1fr !important; gap: 26px !important; }
+  .ft-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 14px !important; }
+  .ft-bottom span[style*="display: flex"] { flex-direction: column !important; gap: 8px !important; }
+  footer > div:last-child { padding: 48px 20px 32px !important; }
+
+  /* Barra de contato */
+  .bf-desktop-only { display: none !important; }
+  .bf-suporte, .bf-vendas {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    gap: 7px !important;
+    font-size: 14px !important;
+    flex: 1 1 auto !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+  .bf-vendas {
+    height: 100% !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Ask AI */
+  .askai-btns { grid-template-columns: 1fr !important; }
+  .askai-h2   { font-size: 32px !important; }
+
+  /* Formulários e demo */
+  .hero-form   { max-width: 100% !important; width: 100% !important; }
+  .form-mobile { padding: 6px !important; }
+  #demo > div:nth-child(2) { padding: 48px 20px !important; }
+
+  /* Utilitário */
+  .mobile-hide { display: none !important; }
+}
+
+@media (min-width: 641px) {
+  .desktop-hide { display: none !important; }
+}
+
+
+/* --------------------------------------------------------------------------
+   12. ACESSIBILIDADE
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
