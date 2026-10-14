@@ -7,7 +7,7 @@
 
     // Cada entrada só entra em jogo se os 3 elementos existirem.
     // Assim, um menu ausente nunca derruba os outros.
-    var MENUS = ['produto', 'conteudos', 'ferramentas'];
+    var MENUS = ['produto', 'conteudos'];
     var items = [];
 
     MENUS.forEach(function (name) {
