@@ -113,6 +113,7 @@ svg {
   background: #F9F9F9;
   color: #C24F18;
 }
+
 /*DROPDOWN INTELLIGENCE*/
 
 @media (max-width: 991px) {
@@ -739,8 +740,16 @@ details[open] summary span {
   .mobile-hide {
     display: none !important;
   }
+
   .compare-grid {
     display: block !important;
+  }
+
+  .sequence-grid {
+    rotate: 90deg !important;
+    margin: 9px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
