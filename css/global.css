@@ -755,6 +755,13 @@ details[open] summary span {
   .step2-grid {
     padding-top: 2rem !important;
   }
+
+  .nota-hero {
+    display: block !important;
+  }
+  .nota-hero-img {
+    height: 16rem;
+  }
 }
 
 @media (min-width: 641px) {
