@@ -751,6 +751,10 @@ details[open] summary span {
     margin-left: auto !important;
     margin-right: auto !important;
   }
+
+  .step2-grid {
+    padding-top: 2rem !important;
+  }
 }
 
 @media (min-width: 641px) {
