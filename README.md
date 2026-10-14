@@ -11,3 +11,6 @@ Referenciado no Webflow via <script src="https://cdn.jsdelivr.net/gh/gustavo-pay
 
 Depois de qualquer alteração em home-fx.js ou payfy-anim.css, fazer purge no jsDelivr:
 https://www.jsdelivr.com/tools/purge
+
+https://purge.jsdelivr.net/gh/gustavo-payfy/payfy-webflow-assets@main/css/global.css
+https://purge.jsdelivr.net/gh/gustavo-payfy/payfy-webflow-assets@main/jss/global.js

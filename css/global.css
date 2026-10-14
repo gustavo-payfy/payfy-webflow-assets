@@ -739,6 +739,9 @@ details[open] summary span {
   .mobile-hide {
     display: none !important;
   }
+  .compare-grid {
+    display: block !important;
+  }
 }
 
 @media (min-width: 641px) {
